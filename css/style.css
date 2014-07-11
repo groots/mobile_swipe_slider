@@ -1,0 +1,22 @@
+.swiper{
+	width: 100%;	
+}
+
+.swiper-gallery-wrapper {
+	width: 200px;
+	height: 400px;
+	margin:0 auto;
+}
+
+.swiper-gallery-wrapper .swiper-item {
+	background-color: blue;
+	float: left;
+	height: 250px;
+	margin: 0;
+	padding: 20px;
+	width: 200px;
+}
+
+.hidden {
+	display:none;	
+}

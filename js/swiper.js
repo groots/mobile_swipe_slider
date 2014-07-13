@@ -1,20 +1,24 @@
 $el = $(".swiper-gallery-wrapper"); 
-
-$el.on("swipeleft", function(){
-	rotateImage("left",".swiper-item");
+$swiperItem = $(".swiper-item");
+$swiperItem.on("swipeleft", function(e){
+	moveImage("left", this);
 });
 
-$el.on("swiperight", function(){
-	rotateImage("right",".swiper-item");
+$swiperItem.on("swiperight", function(e){
+	moveImage("right", this);
 });
 
-function rotateImage(direction, dataGroup, sliderWrapper){
-	var dataSeries = $('dataGroup');
-	var $activeElement = $el.find(".active");
-	//dataSeries.each(function(){
-		//$el.animate({right: "300px"}, 500, 'ease-in-out');
-	//});
-	var $childEl = $activeElement.attr('class').split(" ")[0];
+function moveImage(direction, activeItem, sliderWrapper){
+	var $activeElement = $(activeItem);
+	//var $childEl = $activeElement.attr('class').split(" ")[0];
 	var avgElWidth = $el.width()/$el.children().size();
 	console.log(avgElWidth);
+	if(direction === "left"){
+		console.log("left");
+		$swiperItem.animate({left: ("-" + avgElWidth)}, 500);
+	} else {
+		console.log("right");
+		$swiperItem.animate({left: avgElWidth}, 500);
+	}
+	console.log($activeElement.offset().left);
 }
